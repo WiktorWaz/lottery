@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body  {
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 40px;
+  background-color: #FFFAFA;
+}
+
+
+body {
+
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  text-align: center;
+  height: 100%;
+}
+
+#header {
+  font-family: 'Nerko One', cursive;
+  height: 300px; 
+  background: radial-gradient(circle, rgba(50,106,180,1) 51%, rgba(89,166,233,1) 96%);
+  color: #F2F2F2;
+  box-shadow: 5px 5px 15px 5px #59a6e9;
+  opacity: 0.85;
+  text-shadow: 3px 6px 13px rgba(0,0,0,0.92);
+}
+
+#headerParagraph {
+  font-size: 40px;
+  padding: 0px 50px;   
+}
+
+h1 {
+  font-size: 70px;
+  padding: 50px;
+}
+#contentParagraphTitle  {
+  color: #326ab4;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+#inputWraper {
+  padding: 5px;
+  margin-top: 10px;
+}
+#inputDiv {
+  margin-top: 40px;
+}
+
+.input {
+  border: 1px solid #b0bfc2;
+  border-radius: 8px;
+  height: 30px;
+}
+#descriptionTextArea {
+  border: 1px solid #b0bfc2;
+  border-radius: 8px;
+  height: 300px;
+  width: 50%;
+}
+
+#footer  {
+  background-color: #B2DCF4;
+  height: 40px;
+  margin-top: -40px;
+  color: #ffffff;
+  opacity: 0.8;
+  clear: both;
+}
+#footerText {
+  padding-top: 5px;
+}
+
+#hideBr {
+  display: none;
+}
+
+/* BUTTONS */
+
+
+#submitButton, #runLottery, #returnRutton  {
+  margin-top: 30px;
+  font-family: arial;
+  font-weight: bold;
+  color: #14396A !important;
+  font-size: 21px;
+  text-shadow: 1px 1px 0px #7CACDE;
+  box-shadow: 1px 1px 1px #BEE2F9;  padding: 10px 25px;
+  border-radius: 10px;
+  border: 2px solid #3866A3;
+  background: #63B8EE;
+  background: linear-gradient(to top, #63B8EE, #468CCF);
+}
+#submitButton:hover, #runLottery:hover, #returnRutton:hover  {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(to top, #468CCF, #63B8EE);
+}
+
+.removeButtons {
+  margin-top: 30px;
+  font-family: arial;
+  font-weight: bold;
+  color: #14396A !important;
+  font-size: 21px;
+  text-shadow: 1px 1px 0px #7CACDE;
+  box-shadow: 1px 1px 1px #BEE2F9;  padding: 5px 15px;
+  border-radius: 10px;
+  border: 2px solid #3866A3;
+  background: #63B8EE;
+  background: linear-gradient(to top, #63B8EE, #468CCF);
+}
+.removeButtons:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(to top, #468CCF, #63B8EE);
+}
+
+
+
+
+@media  screen and (max-width: 1280px) {
+
+  #descriptionTextArea {
+    width: 80%;
+  }
+
+}
+
+@media  screen and (max-width: 900px) {
+
+    #headerParagraph {
+    font-size: 30px;
+    padding: 0 50px;   
+  }
+
+}
+@media  screen and (max-width: 720px) {
+
+  h1 {
+    font-size: 60px;
+    padding: 50px, 50px, 0, 50px;
+  }
+
+  #headerParagraph {
+    font-size: 32px;
+    padding: 0;
+  } 
+
+}
+
+@media  screen and (max-width: 630px) {
+
+  h1 {
+    font-size: 50px;
+    padding: 40px;
+  } 
+  #inputDiv {
+    font-size: 20px;
+  }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+  #header {
+    opacity: 0.8;
+  
+   }
+
+  #inputDiv {
+      font-size: 20px;
+      padding: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  #headerParagraph {
+    font-size: 30px;
+    padding: 15px 50px;   
+  }
+
+  #hideBr {
+    display: block;
+  }
+
+  #contentParagraphTitle {
+    padding: 5px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  #inputWraper {
+    padding: 5px;
+    margin-top: 10px;
+  }
+
+  #footerText {
+    font-size: 17px;
+  }
+
+  .removeButtons  {
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+  }
+  
+  #submitButton   {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+  
+  }
+
+  #returnRutton,  #runLottery{
+    height: 60px;
+    font-size: 20px;
+    width: 350px;
+    padding: 20px;
+  }
+  
+
+}
+
+
+
+@media  screen and (max-width: 520px) {
+
+  h1 {
+    font-size: 40px;
+    padding: 30px;
+  }
+
+.removeButtons  {
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  #submitButton {
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  #runLottery, #returnRutton  {
+    width: 250px;
+    height: 60px;
+    font-size: 18px;
+  }
+
+  
+
+
+}

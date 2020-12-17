@@ -1,0 +1,29 @@
+
+<div id="inputDiv">
+
+  <form action="#" onsubmit="submitActionHandler();return false;" method="POST">
+    <p id="contentParagraphTitle"> Jak to zrobić? To proste: </p><br> 
+    <p id="contentParagraph">Wpisz imię i adres mailowy uczestnika aby dodać go do świątecznego losowania. Następnie każdy z uczestników otrzyma na swój adres mailowy imię uczestnika, którego wysolował.</p>
+    <div id="inputWraper">
+   <label class="inputLabel">Imię: <input type="text" name="name" class="input"/></label><br id="hideBr">
+   <label class="inputLabel">E-mail: <input type="text" name="mail" class="input"/></label><br id="hideBr">
+   <label class="inputLabel">Token: <input type="text" name="token" class="input"/></label><br><br>
+   <label class="inputLabel">Daj kilka wskazówek osobie, która będzie Twoim Świętym Mikołajem: <br><br><textarea name="description" id="descriptionTextArea"></textarea></label><br>
+    </div>
+    <button type="submit" id="submitButton">Dodaj</button>
+  </form>
+  <br>
+
+      <div id="listContainer">
+          <div id="list">
+          </div>
+      </div>
+
+    
+  
+
+<a href="/lottery"><button id="runLottery">Rozpocznij losowanie</button></a>
+</div>
+
+
+ 
