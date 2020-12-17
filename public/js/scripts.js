@@ -2,7 +2,7 @@ function submitActionHandler() {
   const name = $('input[name = "name"]').val().trim();
   const mail = $('input[name = "mail"]').val().trim();
   const token = $('input[name = "token"]').val().trim();
-  const description = $('input[name = "description"]').val().trim();
+  const description = $('textarea[name = "description"]').val().trim();
   if (name && mail && token && description) {
 
     $.post("/add", { name: name, mail: mail, token: token, description: description, test: "ok" })
