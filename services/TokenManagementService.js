@@ -48,4 +48,4 @@ class TokenManagementService {
 
 }
 
-module.exports = new TokenManagementService(6, 6);
+module.exports = new TokenManagementService(6, 8);
