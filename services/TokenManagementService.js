@@ -46,6 +46,14 @@ class TokenManagementService {
         this.tokensArray.splice(0, this.tokensArray.length);
     }
 
+    getAllTokens()  {
+        return this.tokensArray;
+    }
+
+    isAnyTokenAvailable()   {
+        return (this.tokensArray.length !== 0);
+    }
+
 }
 
 module.exports = new TokenManagementService(6, 8);

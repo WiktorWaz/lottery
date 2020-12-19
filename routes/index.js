@@ -51,8 +51,12 @@ router.get('/delete/:id', function(req, res, next) {
 router.get('/lottery', function(req, res, next) {
   //walidacja 
   const participantsList = christmasLottery.getParticipantsList();
+  let isAnyTokenAvailable = tokenManagementService.isAnyTokenAvailable();
   if(participantsList.length < 3)  {
     res.render('error', {message: 'Dodano zbyt małą liczbę uczestników. Proszę dodać przynajmniej trzy osoby'});
+    return; 
+  } else if(isAnyTokenAvailable)  {
+    res.render('error', {message: 'Hej! Hej! Poczekaj na wszystkich zanim zaczniemy losowanie! Nie wszyscy jeszcze zdążyli dołączyć'});
     return; 
   }
   //Wywołanie losowania
