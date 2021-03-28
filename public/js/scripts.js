@@ -7,13 +7,11 @@ function submitActionHandler() {
 
     $.post("/add", { name: name, mail: mail, token: token, description: description, test: "ok" })
       .done(function (data) {
-        // alert( "Data Loaded: " + data );
         refreshList(data)
       })
       .fail(function (err) {
         alert("Error occurred: " + err.responseJSON.message);
       });
-    // alert(`wywołanie add`);
   } else  {
     alert('Prosimy wprowadzić wszystkie dane');
   }
@@ -26,16 +24,14 @@ function refreshList() {
 
   $("#list").empty();
   $.get("/list", function (peopleList) {
-    for (let i = 0; i < peopleList.length; i += 1) { //najpierw spytamy server a dopiero potem wyświetlimy nie trzeba nic zmieniać w pętli trzeba coś zrobić wyżej (linijkę)
+    for (let i = 0; i < peopleList.length; i += 1) { 
       let liElement = "<div data-entryId='"+ peopleList[i].id + "'>" 
       + peopleList[i].name + "  " + peopleList[i].mail 
-      //+ " <button class='removeButtons'>usuń</button>"
       +"</div>";
       $("#list").append(liElement);
     };
   })
 }
-
 refreshList();
 
 /* REMOVE BUTTONS */

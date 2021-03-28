@@ -16,8 +16,7 @@ class TokenManagementService {
     }
 
     createTokens(count)  {
-        // tokeny powinny być utworzone przez liczby i numery w określonej liczbie znaków        
-        // tokeny powinny zostać dodane do tablicy 
+
         for(let i=0; i < count; i++)   {
             let newToken = this.generateToken();
             this.tokensArray.push(newToken); 
@@ -26,12 +25,6 @@ class TokenManagementService {
     }
 
     validateToken(token) {
-        //musimy sprawdzić czy dany token znajduje się wewnątrz zbioru tokenArray 
-        //jeśli nie 
-        //      użytkownik dostaje informację, że token jest nieprawidłowy 
-        //jeśli tak,
-        //      dany token zostaje usunięty z tokenArray 
-        //      zwracamy informację, że dany token jest aktywny 
 
         let tokenIndex = this.tokensArray.indexOf(token);
         if(tokenIndex < 0)  {
@@ -56,4 +49,4 @@ class TokenManagementService {
 
 }
 
-module.exports = new TokenManagementService(6, 8);
+module.exports = new TokenManagementService(6, 3);

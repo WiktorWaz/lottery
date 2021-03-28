@@ -19,11 +19,13 @@ class ChristmasLottery {
   constructor() {
     this.participantsList = [];
     this.id = 0;
+    this.participanNumber = 0;
   }
   addParticipant(name, mail, description) {
     let tmp = new Participant(name, mail, this.id, description);
     this.participantsList.push(tmp);
     this.id++;
+    this.participanNumber++;
   }
 
   getParticipantsList() {
@@ -31,10 +33,8 @@ class ChristmasLottery {
   }
 
   deleteParticipant(id) {
-    //const searchIdFunction = function (element) { return element.id == id };
     const searchIdFunction = (element) => (element.id == id);
     const indexNum = this.participantsList.findIndex(searchIdFunction);
-    //const indexNum = this.participantsList.findIndex(element => (element.id === id) );
     console.log("participantsList in method deleteParticipant: " + JSON.stringify(this.participantsList));
     console.log("id in  method deleteParticipant: " + id);
     console.log("indexNum: " + indexNum);
@@ -44,21 +44,10 @@ class ChristmasLottery {
   }
 
   runLottery() {
-    //  let array = [1, 2, 3];
-    //  1. Znając długość array wylosuj losową liczbę od 0 do array.legth 
-    //  2. Dodaj tą liczbę do kontrolnego array, który później będzie poprzez pętle sprawdzać czy ta liczba była użyta 
-    //  3. 
-    //  Weź losowy element 
-    //  2. wyjmij go i dodaj do innego array 
 
-    //  1. Każde dziecko wrzuca do kapelusza karteczkę ze swoim imieniem 
-    //  2. Karteczki są mieszane wewnątrz kapelusza 
-    //  3. Każde dziecko wyciąga jedna karteczkę z kapelusza i zachowuje ją dla siebie 
-    //  4. Sprawdzamy czy któreś z dzieci nie wylosowało samego siebie a jeśli wylosowało to powtarzamy losowanie 
     let validLottery = false;
     let participantsPairs = [];
     let possibleParticipants = [];
-    //krok pierwszy 
 
 
     for (let i = 0; i < this.participantsList.length; i++) {
@@ -67,11 +56,6 @@ class ChristmasLottery {
 
 
     do {
-      //krok drugi 
-      // Math.random  -> 0.1 0.343432 0.532     0.9        Nigdy: 1
-      // * .length= 6 -> 0.6 ~2.06    ~3.192    5.4               6
-      // Math.floor   ->  0    2         3       5                6
-      //mieszanie karteczek w kapeluszu
       let randomizeIterations = possibleParticipants.length * possibleParticipants.length;
       for (let i = 0; i < randomizeIterations; i++) {
         let firstItem = Math.floor(Math.random() * possibleParticipants.length);
@@ -81,14 +65,11 @@ class ChristmasLottery {
         possibleParticipants[secondItem] = tmp;
       }
 
-      //krok trzeci
       participantsPairs = [];
       for (let i = 0; i < this.participantsList.length; i++) {
         participantsPairs.push([this.participantsList[i].id, possibleParticipants[i]]);
       }
 
-
-      //krok czwarty 
       validLottery = true;
       for (let i = 0; i < this.participantsList.length; i++) {
         if (participantsPairs[i][0] === participantsPairs[i][1]) {
@@ -109,9 +90,10 @@ class ChristmasLottery {
     }
 
     this.distributeResults();
+    
+    
   }
 
-  //zwróci usera bazując na id, nie na indexie w tablicy, array doc 
   getParticipantById(id) {
     const searchIdFunction = (element) => (element.id === id);
     const indexNum = this.participantsList.findIndex(searchIdFunction);
@@ -132,8 +114,9 @@ class ChristmasLottery {
 
       let mailContent = await this.renderMailContent(giverName, recipientName, recipienDescription);
       this.sendMail(mailContent.renderedHTML, mailContent.renderedText, giverMail);
-
+      this.deleteAllParticipants(1);
     }
+
   }
 
   async renderMailContent(giverName, recipientName, recipienDescription) {
@@ -152,8 +135,15 @@ class ChristmasLottery {
     mailService.sendMail(giverMail, htmlContent, textContent)
       .then((data) => { console.log("success") })
       .catch((err) => { console.log("err: " + err) });
-
   }
+
+  deleteAllParticipants(counter) {
+    this.participanNumber -= counter;
+    if(this.participanNumber === 0 )  {
+      this.participantsList = [];
+    }    
+  }
+
 }
 
 christmasLottery = new ChristmasLottery();

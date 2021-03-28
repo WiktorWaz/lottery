@@ -6,8 +6,8 @@ class MailService {
         this.transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'wiktorbim@gmail.com',
-                pass: 'Makrela666' // naturally, replace both with your real credentials or an application-specific password
+                user: '', //Data unavailable on public repository
+                pass: ''  //Data unavailable on public repository
             }
         });
 
